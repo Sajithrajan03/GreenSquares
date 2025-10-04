@@ -1,42 +1,59 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Custom animations and components */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-github-green-400 to-github-green-600 bg-clip-text text-transparent;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #0f1419 0%, #161b22 50%, #21262d 100%);
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+  
+  .grid-cols-13 {
+    grid-template-columns: repeat(13, minmax(0, 1fr));
+  }
+  
+  .contribution-square {
+    @apply w-4 h-4 rounded-sm transition-all duration-200 hover:scale-110 hover:z-10;
+  }
+  
+  .contribution-square.empty {
+    @apply bg-github-surface border border-github-border;
+  }
+  
+  .contribution-square.light {
+    @apply bg-github-green-900 shadow-sm;
+    box-shadow: 0 0 4px rgba(14, 68, 41, 0.5);
+  }
+  
+  .contribution-square.partial {
+    @apply bg-github-green-600 shadow-md;
+    box-shadow: 0 0 6px rgba(38, 166, 65, 0.5);
+  }
+  
+  .contribution-square.filled {
+    @apply bg-github-green-500 shadow-lg;
+    box-shadow: 0 0 8px rgba(57, 211, 83, 0.6);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-github-green-600 to-github-green-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:from-github-green-500 hover:to-github-green-400;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-3 px-8 py-4 bg-transparent text-github-text border-2 border-github-border font-semibold rounded-xl hover:border-github-green-500 hover:text-github-green-500 hover:scale-105 transition-all duration-300;
+  }
+  
+  .feature-card {
+    @apply p-8 glass-effect rounded-2xl text-center transition-all duration-500 hover:scale-105 hover:border-github-green-500/50;
+  }
 }
