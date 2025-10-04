@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "GreenSquares/ui/package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "projects": {
+    "rootDirectory": "GreenSquares/ui"
+  }
+}
