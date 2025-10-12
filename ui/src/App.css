@@ -57,3 +57,89 @@
     @apply p-8 glass-effect rounded-2xl text-center transition-all duration-500 hover:scale-105 hover:border-github-green-500/50;
   }
 }
+
+/* Custom shooting star animations */
+@keyframes shootingStar1 {
+  0% {
+    transform: translateX(-120px) translateY(-80px);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(500px) translateY(400px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootingStar2 {
+  0% {
+    transform: translateX(-150px) translateY(-100px);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(480px) translateY(380px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootingStar3 {
+  0% {
+    transform: translateX(-110px) translateY(-70px);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(520px) translateY(420px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootingStar4 {
+  0% {
+    transform: translateX(-180px) translateY(-120px);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(450px) translateY(360px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootingStar5 {
+  0% {
+    transform: translateX(-140px) translateY(-90px);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(490px) translateY(390px);
+    opacity: 0;
+  }
+}
