@@ -65,18 +65,30 @@ const LandingPage = () => {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-6 xl:gap-8 pt-1 justify-center lg:justify-start">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-github-green-400">1000+</div>
-                <div className="text-sm text-github-muted">Active Users</div>
+            <div className="grid grid-cols-3 gap-4 xl:gap-6 pt-6 justify-center lg:justify-start">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-github-green-500/10 to-github-green-400/10 rounded-xl blur-sm group-hover:blur-none transition-all duration-300"></div>
+                <div className="relative bg-github-surface/40 backdrop-blur-sm border border-github-border/50 rounded-xl p-4 text-center hover:border-github-green-500/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-2xl xl:text-3xl font-bold text-gradient animate-pulse">1000+</div>
+                  <div className="text-xs xl:text-sm text-github-muted font-medium">Active Users</div>
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-github-green-400 rounded-full animate-pulse"></div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-github-green-400">50K+</div>
-                <div className="text-sm text-github-muted">Streaks Saved</div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-github-green-400/10 to-github-green-600/10 rounded-xl blur-sm group-hover:blur-none transition-all duration-300"></div>
+                <div className="relative bg-github-surface/40 backdrop-blur-sm border border-github-border/50 rounded-xl p-4 text-center hover:border-github-green-500/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-2xl xl:text-3xl font-bold text-gradient animate-pulse" style={{animationDelay: '0.5s'}}>50K+</div>
+                  <div className="text-xs xl:text-sm text-github-muted font-medium">Streaks Saved</div>
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-github-green-500 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-github-green-400">99%</div>
-                <div className="text-sm text-github-muted">Uptime</div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-github-green-600/10 to-github-green-500/10 rounded-xl blur-sm group-hover:blur-none transition-all duration-300"></div>
+                <div className="relative bg-github-surface/40 backdrop-blur-sm border border-github-border/50 rounded-xl p-4 text-center hover:border-github-green-500/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-2xl xl:text-3xl font-bold text-gradient animate-pulse" style={{animationDelay: '1s'}}>99%</div>
+                  <div className="text-xs xl:text-sm text-github-muted font-medium">Uptime</div>
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-github-green-600 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                </div>
               </div>
             </div>
           </div>
@@ -330,24 +342,118 @@ const LandingPage = () => {
             </div>
 
             {/* Stats Section */}
-            <div className="glass-card p-8 mb-12 border border-github-border/30">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-gradient">1,000+</div>
-                  <div className="text-sm text-github-muted">Active Users</div>
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-github-surface/60 via-github-surface/40 to-github-surface/60 backdrop-blur-sm border border-github-border/30 p-8 mb-12">
+              <div className="absolute inset-0 bg-gradient-to-r from-github-green-500/5 via-transparent to-github-green-500/5"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-github-green-400 to-transparent"></div>
+              
+              <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div className="group space-y-3">
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-github-green-400/20 rounded-full blur-xl animate-pulse"></div>
+                    <div className="relative text-3xl xl:text-4xl font-bold text-gradient hover:scale-110 transition-transform duration-300 cursor-default">1,000+</div>
+                  </div>
+                  <div className="text-sm text-github-muted font-medium group-hover:text-github-green-400 transition-colors">Active Users</div>
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-github-green-400 to-transparent mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-gradient">50,000+</div>
-                  <div className="text-sm text-github-muted">Tracked Commits</div>
+                
+                <div className="group space-y-3">
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-github-green-500/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                    <div className="relative text-3xl xl:text-4xl font-bold text-gradient hover:scale-110 transition-transform duration-300 cursor-default">50,000+</div>
+                  </div>
+                  <div className="text-sm text-github-muted font-medium group-hover:text-github-green-400 transition-colors">Tracked Commits</div>
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-github-green-500 to-transparent mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-gradient">365</div>
-                  <div className="text-sm text-github-muted">Days Supported</div>
+                
+                <div className="group space-y-3">
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-github-green-600/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                    <div className="relative text-3xl xl:text-4xl font-bold text-gradient hover:scale-110 transition-transform duration-300 cursor-default">365</div>
+                  </div>
+                  <div className="text-sm text-github-muted font-medium group-hover:text-github-green-400 transition-colors">Days Supported</div>
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-github-green-600 to-transparent mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-gradient">100%</div>
-                  <div className="text-sm text-github-muted">Open Source</div>
+                
+                <div className="group space-y-3">
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-github-green-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                    <div className="relative text-3xl xl:text-4xl font-bold text-gradient hover:scale-110 transition-transform duration-300 cursor-default">100%</div>
+                  </div>
+                  <div className="text-sm text-github-muted font-medium group-hover:text-github-green-400 transition-colors">Open Source</div>
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-github-green-400 to-transparent mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
+              </div>
+              
+              {/* Floating particles and shooting stars animation */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* GitHub Green themed shooting stars with random positions */}
+                <div className="absolute -top-4" style={{left: '12%', animation: 'shootingStar1 4s infinite linear'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-16 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/30 to-github-green-400/90 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-12 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/50 to-github-green-400/95 transform rotate-45"></div>
+                  </div>
+                </div>
+                
+                <div className="absolute -top-4" style={{left: '67%', animation: 'shootingStar2 5s infinite linear'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-20 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/25 to-github-green-500/85 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-14 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/45 to-github-green-500/90 transform rotate-45"></div>
+            </div>
+                </div>
+                
+                <div className="absolute -top-4" style={{left: '28%', animation: 'shootingStar3 4.5s infinite linear'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-18 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/30 to-github-green-600/80 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-13 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/40 to-github-green-600/85 transform rotate-45"></div>
+              </div>
+                </div>
+                
+                <div className="absolute -top-4" style={{left: '84%', animation: 'shootingStar4 3.8s infinite linear'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-22 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/35 to-github-green-400/90 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-16 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/50 to-github-green-400/95 transform rotate-45"></div>
+                    {/* Shooting star head */}
+              </div>
+                </div>
+                
+                <div className="absolute -top-4" style={{left: '45%', animation: 'shootingStar5 4.2s infinite linear'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-19 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/28 to-github-green-500/82 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-14 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/42 to-github-green-500/87 transform rotate-45"></div>
+                  </div>
+                </div>
+                
+                <div className="absolute -top-4" style={{left: '7%', animation: 'shootingStar1 6s infinite linear', animationDelay: '2s'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-14 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/25 to-github-green-600/80 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-10 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/40 to-github-green-600/85 transform rotate-45"></div>
+                  </div>
+                </div>
+                
+                <div className="absolute -top-4" style={{left: '92%', animation: 'shootingStar3 5.5s infinite linear', animationDelay: '3s'}}>
+                  <div className="relative">
+                    {/* Shooting star tail */}
+                    <div className="absolute w-17 h-0.5 bg-gradient-to-r from-transparent via-github-green-900/32 to-github-green-500/88 transform rotate-45 blur-[0.5px]"></div>
+                    <div className="absolute w-11 h-0.5 bg-gradient-to-r from-transparent via-github-green-800/48 to-github-green-500/92 transform rotate-45"></div>
+                  </div>
+                </div>
+                
+                {/* Twinkling stars only - removed floating bubbles */}
+                <div className="absolute top-8 left-1/5 w-1 h-1 bg-github-green-400 rounded-full animate-ping opacity-30" style={{animationDelay: '1s'}}></div>
+                <div className="absolute bottom-12 right-1/5 w-0.5 h-0.5 bg-github-green-500 rounded-full animate-ping opacity-40" style={{animationDelay: '2.5s'}}></div>
+                <div className="absolute top-20 right-1/2 w-1 h-1 bg-github-green-600 rounded-full animate-ping opacity-25" style={{animationDelay: '4s'}}></div>
+                <div className="absolute bottom-6 left-1/2 w-0.5 h-0.5 bg-github-green-400 rounded-full animate-ping opacity-35" style={{animationDelay: '0.8s'}}></div>
+                
+                {/* Glowing orbs - simplified and green */}
+                <div className="absolute top-4 right-8 w-2 h-2 bg-github-green-400 rounded-full opacity-10 animate-pulse blur-sm"></div>
+                <div className="absolute bottom-4 left-8 w-3 h-3 bg-github-green-500 rounded-full opacity-8 animate-pulse blur-sm" style={{animationDelay: '1.5s'}}></div>
+                <div className="absolute top-1/2 right-4 w-1.5 h-1.5 bg-github-green-600 rounded-full opacity-12 animate-pulse blur-sm" style={{animationDelay: '3s'}}></div>
               </div>
             </div>
 
@@ -361,7 +467,7 @@ const LandingPage = () => {
               </div>
               
               <div className="flex items-center gap-4">
-                <span className="text-sm text-github-muted">© 2024 GreenSquare</span>
+                <span className="text-sm text-github-muted">© 2025 GreenSquare</span>
                 <div className="flex items-center gap-3">
                   <a href="#" className="text-github-muted hover:text-github-green-400 transition-colors p-2 rounded-lg hover:bg-github-border/20">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
