@@ -9,7 +9,7 @@ const LandingPage = () => {
   };
 
   return (
-        <div className="min-h-screen hero-gradient text-github-text font-github">
+    <div className="min-h-screen hero-gradient text-github-text font-github">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 glass-effect z-50 border-b border-github-border">
         <div className="w-full px-6 lg:px-12 xl:px-16 py-4 flex justify-between items-center">
@@ -222,16 +222,34 @@ const LandingPage = () => {
       <section className="py-12 px-6 lg:px-12 xl:px-16">
         <div className="w-full text-center">
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="flex items-center gap-2 text-github-muted">
+            <div className="group flex items-center gap-2 text-github-muted hover:text-github-green-400 transition-colors duration-300 cursor-default">
               <span className="text-github-green-400">★★★★★</span>
-              <span>Loved by developers</span>
+              <span className="relative">
+                Loved by developers
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-github-green-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </span>
             </div>
-            <div className="text-github-muted">•</div>
-            <div className="text-github-muted">Featured on GitHub</div>
-            <div className="text-github-muted">•</div>
-            <div className="text-github-muted">Open Source</div>
-            <div className="text-github-muted">•</div>
-            <div className="text-github-muted">Privacy First</div>
+            <div className="text-github-green-400">•</div>
+            <div className="group text-github-muted hover:text-github-green-400 transition-colors duration-300 cursor-default">
+              <span className="relative">
+                Featured on GitHub
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-github-green-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </span>
+            </div>
+            <div className="text-github-green-400">•</div>
+            <div className="group text-github-muted hover:text-github-green-400 transition-colors duration-300 cursor-default">
+              <span className="relative">
+                Open Source
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-github-green-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </span>
+            </div>
+            <div className="text-github-green-400">•</div>
+            <div className="group text-github-muted hover:text-github-green-400 transition-colors duration-300 cursor-default">
+              <span className="relative">
+                Privacy First
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-github-green-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -297,7 +315,7 @@ const LandingPage = () => {
                 </p>
                 <div className="flex items-center gap-2 text-sm text-github-muted">
                   <span>Built with</span>
-                  <span className="text-red-400 animate-pulse">❤️</span>
+                  <span className="text-red-400 animate-pulse">❤</span>
                   <span>for the developer community</span>
                 </div>
               </div>
