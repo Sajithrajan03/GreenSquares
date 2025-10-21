@@ -68,7 +68,7 @@ const RepositoriesSection = () => {
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        const sessionToken = localStorage.getItem('session_token');
+        const sessionToken = localStorage.getItem('github_session_token') || localStorage.getItem('github_access_token');
         if (!sessionToken) return;
 
         const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -170,7 +170,7 @@ const FileExplorer = ({
   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
 
   const fetchDirectoryContents = async (path: string = ''): Promise<FileItem[]> => {
-    const sessionToken = localStorage.getItem('session_token');
+    const sessionToken = localStorage.getItem('github_session_token') || localStorage.getItem('github_access_token');
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
     const [owner, repo] = repository.full_name.split('/');
     
@@ -189,7 +189,7 @@ const FileExplorer = ({
   };
 
   const fetchFileContent = async (path: string): Promise<string> => {
-    const sessionToken = localStorage.getItem('session_token');
+    const sessionToken = localStorage.getItem('github_session_token') || localStorage.getItem('github_access_token');
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
     const [owner, repo] = repository.full_name.split('/');
     
@@ -379,7 +379,7 @@ const QuickCommitModal = ({ onClose, onCommitSuccess }: { onClose: () => void; o
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        const sessionToken = localStorage.getItem('session_token');
+        const sessionToken = localStorage.getItem('github_session_token') || localStorage.getItem('github_access_token');
         if (!sessionToken) return;
 
         const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -418,7 +418,7 @@ const QuickCommitModal = ({ onClose, onCommitSuccess }: { onClose: () => void; o
 
     setLoading(true);
     try {
-      const sessionToken = localStorage.getItem('session_token');
+      const sessionToken = localStorage.getItem('github_session_token') || localStorage.getItem('github_access_token');
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
       
       const [owner, repo] = selectedRepo.full_name.split('/');
@@ -642,7 +642,9 @@ const DashboardPage = () => {
         const tokenFromUrl = searchParams.get('token');
         
         // Check for existing token in localStorage or from URL
-        const sessionToken = localStorage.getItem('session_token') || tokenFromUrl;
+        const sessionToken = localStorage.getItem('github_session_token') || 
+                            localStorage.getItem('github_access_token') || 
+                            tokenFromUrl;
         
         if (!sessionToken) {
           navigate('/');
@@ -651,7 +653,8 @@ const DashboardPage = () => {
 
         // Store token if it came from URL
         if (tokenFromUrl) {
-          localStorage.setItem('session_token', tokenFromUrl);
+          localStorage.setItem('github_session_token', tokenFromUrl);
+          localStorage.setItem('github_access_token', tokenFromUrl);
           // Clean up URL
           const newUrl = new URL(window.location.href);
           newUrl.searchParams.delete('token');
@@ -671,7 +674,8 @@ const DashboardPage = () => {
         if (!response.ok) {
           if (response.status === 401) {
             // Invalid token, redirect to login
-            localStorage.removeItem('session_token');
+            localStorage.removeItem('github_session_token');
+            localStorage.removeItem('github_access_token');
             navigate('/');
             return;
           }
@@ -698,7 +702,9 @@ const DashboardPage = () => {
   }, [navigate, searchParams]);
 
   const handleSignOut = () => {
-    localStorage.removeItem('session_token');
+    localStorage.removeItem('github_session_token');
+    localStorage.removeItem('github_access_token');
+    localStorage.removeItem('github_user');
     navigate('/');
   };
 
