@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/auth/callback" element={<CallbackPage />} />
+        <Route path="/auth/github/callback" element={<CallbackPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </Router>

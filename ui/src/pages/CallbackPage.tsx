@@ -34,34 +34,41 @@ const CallbackPage = () => {
       }
 
       try {
-        // For demonstration purposes, we'll simulate success with mock data
-        // In a real app, you'd exchange the code for an access token via your backend
-        console.log('Authorization code received:', code);
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
         
-        // Mock user data for demonstration
-        const mockUserData = {
-          login: 'demo-user',
-          name: 'Demo User',
-          avatar_url: 'https://avatars.githubusercontent.com/u/583231?v=4',
-          public_repos: 42,
-          followers: 123,
-          following: 56,
-        };
-        
-        // Store mock data
-        localStorage.setItem('github_access_token', 'demo-token');
-        localStorage.setItem('github_user', JSON.stringify(mockUserData));
-        
-        setUser(mockUserData);
-        setStatus('success');
+        const response = await fetch(`${backendUrl}/auth/github/callback?code=${code}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-        // Redirect to dashboard after 2 seconds
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 2000);
+        if (!response.ok) {
+          throw new Error(`Backend callback failed: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log('✅ Backend callback response:', data);
+
+        if (data.success && data.user && data.accessToken) {
+          // Store authentication data
+          localStorage.setItem('github_access_token', data.accessToken);
+          localStorage.setItem('github_user', JSON.stringify(data.user));
+          localStorage.setItem('github_session_token', data.sessionToken || data.accessToken);
+          
+          setUser(data.user);
+          setStatus('success');
+
+          // Redirect to dashboard after 2 seconds
+          setTimeout(() => {
+            navigate('/dashboard');
+          }, 2000);
+        } else {
+          throw new Error('Invalid response from backend: missing required data');
+        }
         
       } catch (error) {
-        console.error('Error during OAuth callback:', error);
+        console.error('❌ Error during OAuth callback:', error);
         setStatus('error');
       }
     };
