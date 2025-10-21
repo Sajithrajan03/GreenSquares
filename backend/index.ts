@@ -25,8 +25,14 @@ function generateSessionToken(): string {
 }
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://green-squares.vercel.app',
+  process.env.FRONTEND_URL || ''
+].filter(url => url !== '');
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json());
