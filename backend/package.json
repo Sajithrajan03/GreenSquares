@@ -7,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "npx tsx watch index.ts"
+    "dev": "npx tsx watch index.ts",
+    "build": "tsc",
+    "build:vercel": "npx tsc"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,8 @@
     "axios": "^1.12.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
