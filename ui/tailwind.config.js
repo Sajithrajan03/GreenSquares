@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,27 +9,21 @@ export default {
     extend: {
       colors: {
         github: {
-          bg: '#0d1117',
-          surface: '#161b22',
-          border: '#30363d',
-          text: '#e6edf3',
-          muted: '#8b949e',
+          bg: 'rgb(var(--color-bg) / <alpha-value>)',
+          surface: 'rgb(var(--color-surface) / <alpha-value>)',
+          border: 'rgb(var(--color-border) / <alpha-value>)',
+          text: 'rgb(var(--color-text) / <alpha-value>)',
+          muted: 'rgb(var(--color-muted) / <alpha-value>)',
           green: {
-            50: '#f0fff4',
-            100: '#dcfce7',
-            200: '#bbf7d0',
-            300: '#86efac',
             400: '#4ade80',
-            500: '#39d353',
-            600: '#26a641',
-            700: '#16a34a',
-            800: '#15803d',
+            500: '#22c55e',
+            600: '#16a34a',
             900: '#14532d',
           }
         }
       },
       fontFamily: {
-        'github': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Noto Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        github: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Noto Sans', 'Helvetica', 'Arial', 'sans-serif']
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

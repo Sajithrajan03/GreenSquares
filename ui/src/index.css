@@ -1,3 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --color-bg: 255 255 255;
+    --color-surface: 248 250 252;
+    --color-border: 226 232 240;
+    --color-text: 17 24 39;
+    --color-muted: 107 114 128;
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --color-bg: 15 20 25;
+    --color-surface: 22 27 34;
+    --color-border: 48 54 61;
+    --color-text: 201 209 217;
+    --color-muted: 139 148 158;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

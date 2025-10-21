@@ -9,11 +9,11 @@
   }
   
   .hero-gradient {
-    background: linear-gradient(135deg, #0f1419 0%, #161b22 50%, #21262d 100%);
+    @apply bg-gradient-to-br from-github-bg via-github-surface to-github-bg;
   }
   
   .glass-effect {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+    @apply backdrop-blur-xl bg-github-surface/5 border border-github-border/10;
   }
   
   .grid-cols-13 {
