@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": "backend/**"
+      }
+    },
+    {
+      "src": "ui/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/index.ts"
+    },
+    {
+      "src": "/auth/(.*)",
+      "dest": "/backend/index.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/ui/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "backend/index.ts": {
+      "maxDuration": 30
+    }
+  }
+}

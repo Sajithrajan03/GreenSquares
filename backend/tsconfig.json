@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
@@ -11,7 +13,8 @@
     "rootDir": ".",
     "removeComments": true,
     "sourceMap": true,
-    "moduleResolution": "node"
+    "declaration": false,
+    "allowImportingTsExtensions": false
   },
   "include": ["*.ts", "**/*.ts"],
   "exclude": ["node_modules", "dist"]
