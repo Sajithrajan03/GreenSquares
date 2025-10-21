@@ -44,7 +44,7 @@ if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET || !GITHUB_REDIRECT_URI) {
 }
 
 // Basic health check endpoint
-app.get('/', (req, res) => {
+app.get('/api/test', (req, res) => {
   res.json({ message: 'GreenSquares Backend API', status: 'running' });
 });
 
