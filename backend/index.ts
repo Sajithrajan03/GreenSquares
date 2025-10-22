@@ -24,18 +24,15 @@ function generateSessionToken(): string {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-// Middleware
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://green-squares.vercel.app',
-  process.env.FRONTEND_URL || ''
-].filter(url => url !== '');
-
-app.use(cors({
-  origin: allowedOrigins,
+// Middleware - Allow all origins for now
+const corsOptions = {
+  origin: true, // Allow all origins
   credentials: true
-}));
-app.use(express.json());
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // handle preflight
+
 
 // Environment variables
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
