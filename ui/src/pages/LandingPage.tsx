@@ -69,7 +69,7 @@ const LandingPage = () => {
             <span className="text-2xl animate-pulse-slow drop-shadow-[0_0_8px_#39d353]">🟩</span>
             <span className="text-xl font-bold text-gradient">GreenSquare</span>
           </div>
-          <div className='flex items-center gap-1'>
+          <div className='flex items-center gap-3'>
             <button
               className={`btn-primary text-sm ${isAuthenticating ? 'opacity-75 cursor-not-allowed' : ''}`}
               onClick={authGithub}

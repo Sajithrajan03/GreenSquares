@@ -20,6 +20,36 @@
     --color-text: 201 209 217;
     --color-muted: 139 148 158;
   }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--color-surface));
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4ade80; /* github-green-400 */
+    border-radius: 6px;
+    border: 2px solid rgb(var(--color-surface));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22c55e; /* github-green-500 */
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #16a34a; /* github-green-600 */
+  }
+
+  /* Firefox scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #4ade80 rgb(var(--color-surface));
+  }
 }
 
 :root {
