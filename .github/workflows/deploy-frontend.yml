@@ -1,0 +1,64 @@
+name: Deploy Frontend to Vercel
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ui/**'
+      - '.github/workflows/deploy-frontend.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'ui/**'
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'ui/package-lock.json'
+
+    - name: Install dependencies
+      run: |
+        cd ui
+        npm ci
+
+    - name: Build frontend
+      run: |
+        cd ui
+        npm run build
+      env:
+        VITE_BACKEND_URL: https://green-squares-backend.vercel.app
+        VITE_GITHUB_CLIENT_ID: ${{ secrets.GITHUB_CLIENT_ID }}
+        VITE_REDIRECT_URI: https://green-squares-backend.vercel.app/auth/github/callback
+
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: '--prod'
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        working-directory: ./ui
+        scope: ${{ secrets.VERCEL_ORG_ID }}
+
+    - name: Comment PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🚀 Frontend deployed successfully!\n\nPreview: https://green-squares.vercel.app'
+          })
