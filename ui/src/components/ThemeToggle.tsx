@@ -1,32 +1,7 @@
-import { useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import { useTheme } from '../contexts/ThemeContext';
 
 export function ThemeToggle() {
-    const [theme, setTheme] = useState<Theme>(() => {
-        const stored = (localStorage.getItem('theme') as Theme | null);
-        if (stored) return stored;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    });
-
-    useEffect(() => {
-        const root = document.documentElement;
-        if (theme === 'dark') root.classList.add('dark');
-        else root.classList.remove('dark');
-        localStorage.setItem('theme', theme);
-    }, [theme]);
-
-    // Optional: react to system theme changes if user hasn't explicitly chosen
-    useEffect(() => {
-        const mq = window.matchMedia('(prefers-color-scheme: dark)');
-        const onChange = (e: MediaQueryListEvent) => {
-            if (!localStorage.getItem('theme')) {
-                setTheme(e.matches ? 'dark' : 'light');
-            }
-        };
-        mq.addEventListener('change', onChange);
-        return () => mq.removeEventListener('change', onChange);
-    }, []);
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <button
@@ -34,7 +9,7 @@ export function ThemeToggle() {
             aria-label="Toggle theme"
             aria-pressed={theme === 'dark'}
             title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            onClick={() => setTheme(t => (t === 'dark' ? 'light' : 'dark'))}
+            onClick={toggleTheme}
             className="inline-flex text-github-text items-center gap-2 px-3 py-2 text-sm active:border-none focus-within:border-none  focus-within:outline-none transition"
         >
             {
