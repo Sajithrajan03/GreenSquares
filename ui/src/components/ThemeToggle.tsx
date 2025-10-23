@@ -87,8 +87,8 @@ export function ThemeToggle() {
                 </svg>
             </div>
 
-            {/* Subtle pulse animation on hover */}
-            <div className="absolute inset-0 rounded-xl bg-github-green-500/20 animate-ping opacity-0 group-hover:opacity-30 pointer-events-none"></div>
+            {/* Subtle glow effect on hover */}
+            <div className="absolute inset-0 rounded-xl bg-github-green-500/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none"></div>
         </button>
     );
 }
